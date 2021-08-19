@@ -5,17 +5,30 @@
  */
 package crackingthecodinginterview;
 
+import static Chapter1.Chapter1Questions.isPermutation;
+import static Chapter1.Chapter1Questions.URLify;
+
 /**
  *
  * @author ahmet
  */
 public class CrackingTheCodingInterview {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        char[] arr = new char[30];
+        String str = "x";
+        char[] strCharArray = str.toCharArray();
+        for(int i = 0;i < strCharArray.length;i++)
+            arr[i] = strCharArray[i];
+              
+        URLify(arr,1);
+        printCharArray(arr);
+    }
+    
+    static void printCharArray(char[] arr)
+    {
+        for(int i = 0; i < arr.length;i++)
+            System.out.print(arr[i]);
     }
     
 }
