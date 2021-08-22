@@ -9,6 +9,8 @@ import static Chapter1.Chapter1Questions.isPermutation;
 import static Chapter1.Chapter1Questions.isPermutationPalindrome;
 import static Chapter1.Chapter1Questions.oneAway;
 import static Chapter1.Chapter1Questions.stringCompression;
+import static GraphAlgos.BreadthFirstSearch.BFS;
+import GraphAlgos.GraphNode;
 import LinkedList.ListNode;
 import LinkedList.ListUtilityFunctions;
 import static LinkedList.ListUtilityFunctions.printList;
@@ -22,7 +24,11 @@ import StackAndQueues.StackMin.StackMin;
 import StackAndQueues.StackMin.StackMinNode;
 import StackAndQueues.StackNode;
 import StackAndQueues.StackOfStacks.StackOfStacks;
+import StackAndQueues.StackSort;
+import java.util.ArrayList;
 import java.util.Stack;
+import Graphs.*;
+
 
 /**
  *
@@ -34,18 +40,59 @@ public class CrackingTheCodingInterview {
 
     public static void main(String[] args) throws Exception {
         
-        Stack<Integer> s = new Stack();
-        s.push(4);
-        s.push(2);
-        s.push(5);
+        Graph graph = new Graph();
         
-        sortStack(s);
-        System.out.println("Size = " + s.size());
+        Node A = new Node("A");
+        Node B = new Node("B");
+        Node C = new Node("C");
+        Node D = new Node("D");
+        Node E = new Node("E");
         
-        while(!s.isEmpty())
-            System.out.println(s.pop());
+        A.addEdge(new Edge(A,B,10));
+        A.addEdge(new Edge(A,E,3));
+        B.addEdge(new Edge(B,C,2));
+        B.addEdge(new Edge(B,E,4));
+        E.addEdge(new Edge(E,B,1));
+        E.addEdge(new Edge(E,D,2));
+        C.addEdge(new Edge(C,D,9));
+        D.addEdge(new Edge(D,C,7));
         
+        graph.dijkstra(A);
+        
+        graph.nodes.add(A);
+        graph.nodes.add(B);
+        graph.nodes.add(C);
+        graph.nodes.add(D);
+        graph.nodes.add(E);
+        
+        for(Node n : graph.nodes)
+            System.out.println("Name : " + n.name + ", Weight : " + n.weight);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public static Stack<Integer> sortStack(Stack<Integer> stack)
     {
