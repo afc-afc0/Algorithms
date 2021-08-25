@@ -9,8 +9,16 @@ import static Chapter1.Chapter1Questions.isPermutation;
 import static Chapter1.Chapter1Questions.isPermutationPalindrome;
 import static Chapter1.Chapter1Questions.oneAway;
 import static Chapter1.Chapter1Questions.stringCompression;
+import DFSAlgos.CountIslands;
+import DFSAlgos.TransitiveClosureMatrix;
+import static GraphAlgos.BellmanFord.BellmanFord;
+import GraphAlgos.BinaryTreeLevel;
 import static GraphAlgos.BreadthFirstSearch.BFS;
+import GraphAlgos.CheckBalanced;
+import GraphAlgos.FloydWarshall;
+import static GraphAlgos.FloydWarshall.findAPSP;
 import GraphAlgos.GraphNode;
+import GraphAlgos.MinimalEdge;
 import LinkedList.ListNode;
 import LinkedList.ListUtilityFunctions;
 import static LinkedList.ListUtilityFunctions.printList;
@@ -28,7 +36,13 @@ import StackAndQueues.StackSort;
 import java.util.ArrayList;
 import java.util.Stack;
 import Graphs.*;
-
+import static GraphAlgos.DepthFirstSearch.DFS;
+import GraphAlgos.Eulerian;
+import GraphAlgos.KasajarasFindSCC;
+import GraphAlgos.MinimalTree;
+import GraphAlgos.ReverseGraph;
+import GraphAlgos.RouteBetweenNodes;
+import Trie.Trie;
 
 /**
  *
@@ -39,34 +53,7 @@ public class CrackingTheCodingInterview {
     //    3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 
     public static void main(String[] args) throws Exception {
-        
-        Graph graph = new Graph();
-        
-        Node A = new Node("A");
-        Node B = new Node("B");
-        Node C = new Node("C");
-        Node D = new Node("D");
-        Node E = new Node("E");
-        
-        A.addEdge(new Edge(A,B,10));
-        A.addEdge(new Edge(A,E,3));
-        B.addEdge(new Edge(B,C,2));
-        B.addEdge(new Edge(B,E,4));
-        E.addEdge(new Edge(E,B,1));
-        E.addEdge(new Edge(E,D,2));
-        C.addEdge(new Edge(C,D,9));
-        D.addEdge(new Edge(D,C,7));
-        
-        graph.dijkstra(A);
-        
-        graph.nodes.add(A);
-        graph.nodes.add(B);
-        graph.nodes.add(C);
-        graph.nodes.add(D);
-        graph.nodes.add(E);
-        
-        for(Node n : graph.nodes)
-            System.out.println("Name : " + n.name + ", Weight : " + n.weight);
+        Eulerian eu = new Eulerian(); 
     }
     
     

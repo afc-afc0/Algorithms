@@ -6,6 +6,7 @@
 package GraphAlgos;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  *
@@ -14,13 +15,27 @@ import java.util.ArrayList;
 public class DepthFirstSearch {
     
     
-    public <T> ArrayList<T> DFS(GraphNode<T> node)
+    public static <T> ArrayList<GraphNode<T>> DFS(GraphNode<T> startNode, int N)
     {
+        ArrayList<GraphNode<T>> result = new ArrayList();
+        HashSet<GraphNode<T>> visited = new HashSet();
+        helper(startNode ,visited, result);
         
+        return result;
+    }
+    
+    public static <T> void helper(GraphNode<T> node, HashSet<GraphNode<T>> visited, ArrayList<GraphNode<T>> result)
+    {
+        if(visited.contains(node))
+            return;
         
-        for(GraphNode<T> n : node.neighBours)
-            DFS(n);
+        System.out.println(node.val);
+        visited.add(node);
+        result.add(node);
         
-        return null;
+        for(GraphNode<T> neighbour : node.neighBours)
+            helper(neighbour, visited, result);
+        
+        System.out.println(node.val);
     }
 }
