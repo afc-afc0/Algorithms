@@ -30,15 +30,28 @@ public class RouteBetweenNodes {
         node1.add(2);
         
         ArrayList<Integer> node2 = new ArrayList();
-        
+        node2.add(3);
+        node2.add(4);
+        node2.add(5);
+
         ArrayList<Integer> node3 = new ArrayList();
-        node3.add(2);
-        
+
+        ArrayList<Integer> node4 = new ArrayList();
+        node4.add(6);
+
+        ArrayList<Integer> node5 = new ArrayList();
+
+        ArrayList<Integer> node6 = new ArrayList();
+
         graph.add(node0);
         graph.add(node1);
         graph.add(node2);
+        graph.add(node3);
+        graph.add(node4);
+        graph.add(node5);
+        graph.add(node6);
         
-        System.out.println(isConnected(0, 3));
+        System.out.println(isConnected(0, 5));
     }
     
     public boolean isConnected(int source, int target)
@@ -63,10 +76,11 @@ public class RouteBetweenNodes {
         for(int node : adjList)
         {
             if(!visited[node])
-                if(DFS(node, target, visited))
+                if(DFS(node, target, visited)) {
                     return true;
+                }
         }
-        
+
         return false;
     }
 }

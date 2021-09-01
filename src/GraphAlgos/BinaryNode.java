@@ -14,6 +14,7 @@ package GraphAlgos;
 public class BinaryNode {
     public BinaryNode right;
     public BinaryNode left;
+    public BinaryNode parent;
     public int val;
     
     public BinaryNode(int val)
