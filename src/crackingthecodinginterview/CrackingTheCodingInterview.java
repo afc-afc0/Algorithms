@@ -5,18 +5,17 @@
  */
 package crackingthecodinginterview;
 
-import GraphAlgos.BuildOrder;
+import BinaryTree.FindTheDiagonalSum;
 
 public class CrackingTheCodingInterview {
 
     //    3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 
     public static void main(String[] args)  {
-        BuildOrder buildOrder = new BuildOrder();
+        FindTheDiagonalSum findTheDiagonalSum = new FindTheDiagonalSum();
     }
 
    
-    
 
     
 }
