@@ -2,6 +2,8 @@ package BinaryTree;
 
 import GraphAlgos.BinaryNode;
 
+import java.util.ArrayList;
+
 public class FindTheDiagonalSum {
 
     BinaryNode root;
@@ -27,44 +29,25 @@ public class FindTheDiagonalSum {
 
         node5.left = node7;
         node5.right = node8;
-
+        ArrayList<Integer> result = new ArrayList<>();
+        getDiagonalSum(root, 0,result);
+        for (int num : result)
+            System.out.println(num);
     }
 
-    private void printIntArr(int[] arr)
-    {
-        for (int num : arr)
-            System.out.print(num + " ");
-        System.out.println();
+    private void getDiagonalSum(BinaryNode root, int currentDiagonal, ArrayList<Integer> result) {
+
+        if (root == null)
+            return;
+
+        while(result.size() <= currentDiagonal)
+            result.add(0);
+
+        result.set(currentDiagonal, result.get(currentDiagonal) + root.val);
+        getDiagonalSum(root.left, currentDiagonal, result);
+        getDiagonalSum(root.right, currentDiagonal + 1, result);
     }
 
-
-    private int getLeftHeight(BinaryNode root) {
-        if(root == null)
-            return 0;
-
-        int count = 0;
-        BinaryNode temp = root;
-        while(temp != null){
-            count++;
-            temp = temp.left;
-        }
-
-        return count;
-    }
-
-    private int getRightHeight(BinaryNode root) {
-        if(root == null)
-            return 0;
-
-        int count = 0;
-        BinaryNode temp = root;
-        while(temp != null){
-            count++;
-            temp = temp.right;
-        }
-
-        return count;
-    }
 
 
 }

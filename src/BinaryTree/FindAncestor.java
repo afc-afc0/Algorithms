@@ -30,7 +30,10 @@ public class FindAncestor {
         node6.left = node8;
 
         node7.right = node9;
-        BinaryNode result = findAncestor(node4, node6);
+
+        BinaryNode node10 = new BinaryNode(10);
+
+        findLCA(node7, node10);
         System.out.println(result.val);
     }
 
@@ -65,6 +68,75 @@ public class FindAncestor {
 
         return left || right;
     }
+
+
+
+    private class TwoNodeWrapper{
+        public BinaryNode first;
+        public BinaryNode second;
+
+        public TwoNodeWrapper(){
+            first = null;
+            second = null;
+        }
+    }
+
+    BinaryNode result = null;
+    private BinaryNode findLCA(BinaryNode node1, BinaryNode node2){
+
+        findLCAUtil(root, node1, node2);
+
+        if(result == null){
+            System.out.println("Couldn't found LCA");
+        }
+
+        return result;
+    }
+
+    //We are assuming both nodes are on the tree otherwise will return the first node that we found
+    private boolean findLCAUtil(BinaryNode currentNode, BinaryNode first, BinaryNode second){
+
+        if (currentNode == null)
+            return false;
+
+        if (currentNode == first || currentNode == second) {
+            result = currentNode;
+            return true;
+        }
+        boolean left = findLCAUtil(currentNode.left, first, second);
+        boolean right = findLCAUtil(currentNode.right, first, second);
+
+        if(left && right)
+            result = currentNode;
+
+        return left || right;
+    }
+
+    private boolean findLCAUtil(BinaryNode currentNode, BinaryNode first, BinaryNode second, TwoNodeWrapper wrapper){
+        if(currentNode == null)
+            return false;
+
+        if(currentNode == first) {
+            wrapper.first = currentNode;
+            return true;
+        }
+
+        if(currentNode == second){
+            wrapper.second = currentNode;
+            return true;
+        }
+
+        boolean left = findLCAUtil(currentNode.left, first, second, wrapper);
+        boolean right = findLCAUtil(currentNode.right, first, second, wrapper);
+
+        if(left && right) {
+            result = currentNode;
+        }
+        return left || right;
+    }
+
+
+
 
     private boolean isPresent(BinaryNode root, BinaryNode node)
     {
