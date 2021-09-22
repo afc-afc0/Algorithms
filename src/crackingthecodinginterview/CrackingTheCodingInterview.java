@@ -5,17 +5,14 @@
  */
 package crackingthecodinginterview;
 
-import DFSAlgos.GetSubseqsOfString;
-import DynamicProgramming.EditDistance;
-import DynamicProgramming.Knapsack01;
-import DynamicProgramming.LongestCommonSubsequence;
+import GraphAlgos.ArrivalAndDepartureTime;
 
 public class CrackingTheCodingInterview {
 
     //    3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 
     public static void main(String[] args)  {
-        Knapsack01 knapsack01 = new Knapsack01();
+        ArrivalAndDepartureTime arrivalAndDepartureTime = new ArrivalAndDepartureTime();
     }
 
    
